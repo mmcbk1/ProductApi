@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('products', 'ProductController@getProductsByAmount');
+Route::get('products/available', 'ProductController@getAvailable');
+Route::get('products/unavailable', 'ProductController@getUnavailable');
