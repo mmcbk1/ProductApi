@@ -27,7 +27,7 @@ class ProductController extends Controller
         }
 
         return response()
-            ->json($this->productRepository->all(['id', 'name', 'amount'], 200));
+            ->json($this->productRepository->paginate($page = 30), 200);
     }
 
     public function getAvailable()
@@ -53,7 +53,7 @@ class ProductController extends Controller
         return response()->json($isUpdated);
     }
 
-    public function createProduct(CreateProductRequest $request)
+    public function storeProduct(CreateProductRequest $request)
     {
         $isSaved = $this->productRepository->create([
             'name' => $request->input('name'),
@@ -71,8 +71,8 @@ class ProductController extends Controller
 
     public function getProduct(int $id)
     {
-        response()
-            ->json($this->productRepository->find($id, ['id', 'name', 'value']), 200);
+       return response()
+            ->json($this->productRepository->find($id, ['id', 'name', 'amount']), 200);
     }
 
 }

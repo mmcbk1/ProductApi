@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('products', 'ProductController@getProductsByAmount');
+Route::get('products', 'ProductController@getProducts');
 Route::get('products/available', 'ProductController@getAvailable');
 Route::get('products/unavailable', 'ProductController@getUnavailable');
+Route::get('product/{id}', 'ProductController@getProduct');
+Route::put('product/{id}', 'ProductController@updateProduct');
+Route::delete('product/{id}', 'ProductController@deleteProduct');
+Route::post('product', 'ProductController@storeProduct');

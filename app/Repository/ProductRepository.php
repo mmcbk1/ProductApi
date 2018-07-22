@@ -16,7 +16,7 @@ class ProductRepository extends BaseRepository
     {
         return $this->model
             ->select(['id', 'name', 'amount'])
-            ->where('amount', '<', $amount)
+            ->where('amount', '>', $amount)
             ->paginate($limit);
     }
 
